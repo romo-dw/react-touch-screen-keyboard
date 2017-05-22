@@ -152,6 +152,8 @@ export default class Keyboard extends PureComponent {
 			keysSet = GermanLayout;
 		} else if (this.state.currentLanguage === 'ru') {
 			keysSet = CyrillicLayout;
+		} else if (this.state.currentLanguage === 'sv') {
+			keysSet = SwedishLayout;
 		} else {
 			keysSet = LatinLayout;
 		}
