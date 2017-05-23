@@ -242,6 +242,11 @@ export default class Keyboard extends PureComponent {
 				</div>
 
 				<div className="keyboard-row">
+					<KeyboardButton
+						value={'RENSA'}
+						classes="keyboard-clear-all-button"
+						onClick={() => this.props.inputNode.value = ''}
+					/>
 					{typeof secondaryKeyboard !== 'undefined' ?
 						<KeyboardButton
 							value={<LanguageIcon />}

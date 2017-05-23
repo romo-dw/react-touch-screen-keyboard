@@ -63,6 +63,13 @@
 	flex-basis: 128px;
 }
 
+.keyboard-clear-all-button {
+	flex-basis: 95px;
+	background-color: #b32323;
+	border-color: #b32323;
+	color: #ffffff;
+}
+
 .keyboard-submit-button {
 	flex-basis: 95px;
 	background-color: #63b324;
