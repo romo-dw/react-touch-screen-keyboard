@@ -5,6 +5,7 @@ import LatinLayout from './layouts/LatinLayout';
 import CyrillicLayout from './layouts/CyrillicLayout';
 import SymbolsLayout from './layouts/SymbolsLayout';
 import GermanLayout from './layouts/GermanLayout';
+import SwedishLayout from './layouts/SwedishLayout';
 
 import BackspaceIcon from './icons/BackspaceIcon';
 import LanguageIcon from './icons/LanguageIcon';
@@ -254,9 +255,9 @@ export default class Keyboard extends PureComponent {
 						/>
 					: null}
 					<KeyboardButton
-						value={' '}
+						value={'Mellanslag'}
 						classes="keyboard-space"
-						onClick={this.handleLetterButtonClick}
+						onClick={this.handleLetterButtonClick.bind(this, ' ')}
 					/>
 					{inputNode.dataset.type === 'email' ?
 						<KeyboardButton
