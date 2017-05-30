@@ -245,7 +245,7 @@ export default class Keyboard extends PureComponent {
 					<KeyboardButton
 						value={'RENSA'}
 						classes="keyboard-clear-all-button"
-						onClick={() => this.props.inputNode.value = ''}
+						onClick={this.clearInput}
 					/>
 					{typeof secondaryKeyboard !== 'undefined' ?
 						<KeyboardButton
