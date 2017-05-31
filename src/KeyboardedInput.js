@@ -58,7 +58,7 @@ class KeyboardedInput extends React.Component {
           step={this.props.step}
           pattern={this.props.pattern}
           onChange={this.handleChange}
-          autoFocus={this.props.autoFocus ? this.props.autoFocus : null}
+          autoFocus={this.props.autoFocus}
           ref="input"
         />
         {this.state.showKeyboard && this.props.enabled &&
@@ -67,6 +67,7 @@ class KeyboardedInput extends React.Component {
             defaultKeyboard={this.props.defaultKeyboard}
             secondaryKeyboard={this.props.secondaryKeyboard}
             inputNode={this.refs.input}
+            isFirstLetterUppercase={this.props.capitalize}
           />
         }
       </div>
