@@ -14,6 +14,7 @@ class KeyboardedInput extends React.Component {
     this.state = {
       showKeyboard: false,
       input: null,
+      focusLostTimer: null
     };
   }
 
@@ -23,6 +24,8 @@ class KeyboardedInput extends React.Component {
 
   componentWillUnmount() {
     this.refs.input.removeEventListener('input', this.handleChange);
+    if (this.state.focusLostTimer)
+      clearTimeout(this.state.focusLostTimer);
   }
 
   componentDidUpdate(prevProps, prevState) {
@@ -39,12 +42,13 @@ class KeyboardedInput extends React.Component {
   }
 
   handleFocusLost(event) {
-    var that = this;
-    setTimeout(function(){
+    this.setState({
+      focusLostTimer: setTimeout(() => {
        if (!document.activeElement.classList.contains("keyboard-button") && !document.activeElement.classList.contains("keyboard") && !document.activeElement.classList.contains("keyboard-row")) {
-         that.setState({...that.state, showKeyboard: false});
+         this.setState({...this.state, showKeyboard: false, focusLostTimer: null});
        }
-    }, 0);
+      }, 0)
+    });
   }
 
   hideKeyboard() {
