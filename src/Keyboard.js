@@ -10,7 +10,8 @@ import SwedishLayout from './layouts/SwedishLayout';
 import BackspaceIcon from './icons/BackspaceIcon';
 import LanguageIcon from './icons/LanguageIcon';
 import ShiftIcon from './icons/ShiftIcon';
-
+import HideKeyboardIcon from './icons/HideKeyboardIcon';
+import ClearFieldIcon from './icons/ClearFieldIcon';
 
 export default class Keyboard extends PureComponent {
 	static propTypes = {
@@ -59,6 +60,7 @@ export default class Keyboard extends PureComponent {
 		setTimeout(() => {
 			inputNode.focus();
 		}, 0);
+		this.setState({uppercase: this.isUppercase()});
 		inputNode.dispatchEvent(new Event('input'));
 	}
 
@@ -243,7 +245,7 @@ export default class Keyboard extends PureComponent {
 
 				<div className="keyboard-row">
 					<KeyboardButton
-						value={'RENSA'}
+						value={<ClearFieldIcon />}
 						classes="keyboard-clear-all-button"
 						onClick={this.clearInput}
 					/>
@@ -271,7 +273,7 @@ export default class Keyboard extends PureComponent {
 						/>
 					: null}
 					<KeyboardButton
-						value={'OK'}
+						value={<HideKeyboardIcon />}
 						classes="keyboard-submit-button"
 						onClick={this.props.hideKeyboard}
 					/>
