@@ -5,6 +5,7 @@ import KeyboardButton from './KeyboardButton';
 class KeyboardedInput extends React.Component {
   constructor(props) {
     super(props);
+
     this.handleFocus = this.handleFocus.bind(this);
     this.handleFocusLost = this.handleFocusLost.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -22,6 +23,11 @@ class KeyboardedInput extends React.Component {
 
   componentWillUnmount() {
     this.refs.input.removeEventListener('input', this.handleChange);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    if ((this.state.showKeyboard !== prevState.showKeyboard) && this.props.onToggle)
+      this.props.onToggle(this.state.showKeyboard);
   }
 
   handleChange(event) {
